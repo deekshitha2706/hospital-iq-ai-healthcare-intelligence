@@ -1,0 +1,463 @@
+/* =====================================================================
+   Hospital IQ - custom.css
+   Premium healthcare look: deep navy navigation, teal accents,
+   rounded white cards, soft shadows and SUBTLE animations only.
+   ===================================================================== */
+
+:root {
+  --navy: #0B2A4A;
+  --navy-2: #123A63;
+  --blue: #2B6CB0;
+  --teal: #12A8A3;
+  --teal-dark: #0E8C88;
+  --green: #2E9E6B;
+  --amber: #E9A23B;
+  --red: #D64550;
+  --purple: #7C5CBF;
+  --ink: #1E293B;
+  --muted: #64748B;
+  --line: #E6ECF2;
+  --bg: #F4F7FB;
+  --card: #FFFFFF;
+  --radius: 16px;
+  --shadow: 0 2px 10px rgba(11, 42, 74, 0.06);
+  --shadow-hover: 0 10px 24px rgba(11, 42, 74, 0.12);
+}
+
+html, body {
+  font-family: "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+body { margin: 0; }
+.container-fluid { padding: 0 !important; }
+
+/* ---------------------------------------------------------------
+   Keyframes (all short, played once)
+   --------------------------------------------------------------- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(24px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes bgShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes softPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(214, 69, 80, 0.35); }
+  70%  { box-shadow: 0 0 0 10px rgba(214, 69, 80, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(214, 69, 80, 0); }
+}
+
+/* ===============================================================
+   LOGIN PAGE
+   =============================================================== */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: linear-gradient(120deg, #0B2A4A, #14507E, #0E8C88, #123A63);
+  background-size: 300% 300%;
+  animation: bgShift 24s ease infinite;   /* very slow, barely noticeable */
+}
+
+.login-wrap {
+  width: 100%;
+  max-width: 980px;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 24px;
+  animation: fadeSlide 0.7s ease both;
+}
+
+.login-card, .login-demo {
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 22px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 20px 50px rgba(5, 20, 40, 0.35);
+  padding: 34px;
+  color: #FFFFFF;
+}
+
+.login-logo {
+  width: 64px; height: 64px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--teal);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 30px;
+  margin-bottom: 18px;
+}
+
+.login-title { font-size: 34px; font-weight: 800; margin: 0 0 6px 0; letter-spacing: -0.5px; }
+.login-sub   { font-size: 14px; line-height: 1.5; opacity: 0.88; margin-bottom: 24px; }
+
+.login-card label { color: #FFFFFF; font-weight: 600; font-size: 13px; }
+.login-card .form-control {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid transparent;
+  border-radius: 12px;
+  height: 44px;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.login-card .form-control:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(18, 168, 163, 0.35);
+}
+
+.login-btn {
+  width: 100%;
+  margin-top: 8px;
+  height: 46px;
+  border: none;
+  border-radius: 12px;
+  background: var(--teal);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 15px;
+  transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+}
+.login-btn:hover { background: var(--teal-dark); transform: translateY(-2px); box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25); color: #fff; }
+.login-btn:active { transform: translateY(0); }
+
+.login-error {
+  background: rgba(214, 69, 80, 0.92);
+  color: #FFFFFF;
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin-top: 14px;
+  font-size: 13px;
+  animation: fadeUp 0.3s ease both;
+}
+
+.login-demo h4 { margin: 0 0 4px 0; font-weight: 700; }
+.login-demo p  { font-size: 13px; opacity: 0.85; margin-bottom: 14px; }
+.login-demo table { width: 100%; font-size: 13px; border-collapse: collapse; }
+.login-demo th { text-align: left; font-weight: 600; padding: 6px 4px; border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
+.login-demo td { padding: 7px 4px; border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
+.login-demo code { background: rgba(255, 255, 255, 0.18); color: #fff; padding: 2px 6px; border-radius: 6px; }
+.login-note { margin-top: 14px; font-size: 12px; opacity: 0.8; line-height: 1.5; }
+
+/* ===============================================================
+   APPLICATION SHELL (sidebar + main area)
+   =============================================================== */
+.hiq-shell { display: flex; min-height: 100vh; }
+
+.hiq-sidebar {
+  width: 260px;
+  min-width: 260px;
+  background: linear-gradient(180deg, var(--navy), var(--navy-2));
+  color: #DCE6F2;
+  display: flex;
+  flex-direction: column;
+  padding: 22px 14px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.hiq-brand { display: flex; align-items: center; gap: 12px; padding: 0 8px 22px 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+.hiq-brand-icon { width: 42px; height: 42px; border-radius: 12px; background: var(--teal); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+.hiq-brand-name { font-size: 18px; font-weight: 800; color: #FFFFFF; line-height: 1.1; }
+.hiq-brand-role { font-size: 12px; color: #9FB6CF; margin-top: 2px; }
+
+.hiq-nav { flex: 1; padding-top: 18px; display: flex; flex-direction: column; gap: 4px; }
+.hiq-nav-item { border-radius: 12px; transition: background 0.2s ease, transform 0.2s ease; }
+.hiq-nav-item a.hiq-nav-link {
+  display: flex; align-items: center; gap: 12px;
+  padding: 11px 14px;
+  color: #B9CBE0 !important;
+  text-decoration: none !important;
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 12px;
+}
+.hiq-nav-item a.hiq-nav-link i, .hiq-nav-item a.hiq-nav-link svg { width: 18px; text-align: center; }
+.hiq-nav-item:hover { background: rgba(255, 255, 255, 0.08); transform: translateX(3px); }
+.hiq-nav-item.active { background: rgba(18, 168, 163, 0.22); box-shadow: inset 3px 0 0 var(--teal); }
+.hiq-nav-item.active a.hiq-nav-link { color: #FFFFFF !important; font-weight: 700; }
+
+.hiq-sidebar-foot { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 16px; }
+.hiq-user { display: flex; align-items: center; gap: 10px; padding: 0 8px 14px 8px; }
+.hiq-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--blue); color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.hiq-user-name { color: #FFFFFF; font-weight: 600; font-size: 14px; }
+.hiq-user-sub { font-size: 12px; color: #9FB6CF; }
+
+.hiq-logout {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  padding: 10px;
+  font-weight: 600;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.hiq-logout:hover { background: rgba(214, 69, 80, 0.85); color: #fff; transform: translateY(-1px); }
+
+.hiq-main { flex: 1; min-width: 0; padding: 22px 30px 40px 30px; }
+
+.hiq-topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; color: var(--muted); font-size: 13px; }
+.hiq-top-date i, .hiq-top-date svg { margin-right: 8px; color: var(--teal); }
+.hiq-top-right { display: flex; align-items: center; gap: 14px; }
+.hiq-demo-chip { background: #E7F6F5; color: var(--teal-dark); padding: 5px 12px; border-radius: 20px; font-weight: 600; font-size: 12px; }
+.hiq-bell { position: relative; width: 38px; height: 38px; border-radius: 50%; background: #FFFFFF; box-shadow: var(--shadow); display: flex; align-items: center; justify-content: center; color: var(--navy); }
+.hiq-bell-count { position: absolute; top: -4px; right: -4px; background: var(--red); color: #fff; font-size: 11px; min-width: 18px; height: 18px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-weight: 700; animation: softPulse 2.4s ease-out 3; }
+
+.hiq-page-head { margin-bottom: 18px; animation: fadeUp 0.4s ease both; }
+.hiq-page-head h2 { margin: 0; font-size: 26px; font-weight: 800; color: var(--navy); letter-spacing: -0.3px; }
+.hiq-page-head p { margin: 4px 0 0 0; color: var(--muted); }
+
+/* hidden-tab panel sits flush inside .hiq-main */
+.hiq-main .tab-content { padding: 0; }
+
+/* ===============================================================
+   CARDS, GRIDS AND KPI TILES
+   =============================================================== */
+.hiq-grid { display: grid; gap: 18px; margin-bottom: 18px; }
+.kpi-grid { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+
+.hiq-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 18px;
+  overflow: hidden;
+  animation: fadeUp 0.45s ease both;
+  transition: box-shadow 0.25s ease;
+}
+.hiq-grid > .hiq-card { margin-bottom: 0; }
+.hiq-card:hover { box-shadow: var(--shadow-hover); }
+.hiq-card-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; padding: 18px 22px 0 22px; flex-wrap: wrap; }
+.hiq-card-head h4 { margin: 0; font-size: 16px; font-weight: 700; color: var(--navy); }
+.hiq-card-sub { font-size: 12px; color: var(--muted); }
+.hiq-card-body { padding: 16px 22px 22px 22px; }
+.hiq-card.fade-in .hiq-card-body { animation: fadeUp 0.7s ease both; }
+
+.hiq-kpi {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow);
+  animation: fadeUp 0.45s ease both;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+.hiq-kpi:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+.hiq-kpi-icon { width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+.hiq-kpi-label { font-size: 12px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.4px; }
+.hiq-kpi-value { font-size: 22px; font-weight: 800; color: var(--navy); line-height: 1.25; word-break: break-word; }
+.hiq-kpi-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+.tone-teal   .hiq-kpi-icon { background: #E3F6F5; color: var(--teal); }
+.tone-blue   .hiq-kpi-icon { background: #E6EFFA; color: var(--blue); }
+.tone-navy   .hiq-kpi-icon { background: #E4E9F1; color: var(--navy); }
+.tone-green  .hiq-kpi-icon { background: #E2F4EA; color: var(--green); }
+.tone-amber  .hiq-kpi-icon { background: #FCF1DC; color: #C98313; }
+.tone-red    .hiq-kpi-icon { background: #FBE6E8; color: var(--red); }
+.tone-purple .hiq-kpi-icon { background: #EFE9F8; color: var(--purple); }
+
+.hiq-input-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px 24px; margin-bottom: 14px; }
+.hiq-input-group h5 { font-size: 13px; font-weight: 700; color: var(--teal-dark); text-transform: uppercase; letter-spacing: 0.5px; margin: 8px 0; }
+.hiq-input-grid .form-group { margin-bottom: 10px; }
+.hiq-input-grid label, .hiq-card label { font-size: 12px; font-weight: 600; color: #475569; }
+.hiq-card .form-control { border-radius: 10px; }
+
+.hiq-btn {
+  background: var(--teal); color: #FFFFFF; border: none; border-radius: 12px;
+  padding: 10px 22px; font-weight: 700;
+  transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+}
+.hiq-btn:hover { background: var(--teal-dark); color: #fff; transform: translateY(-2px); box-shadow: 0 8px 16px rgba(14, 140, 136, 0.28); }
+
+/* ===============================================================
+   WELCOME BANNER, HERO, CHIPS
+   =============================================================== */
+.hiq-welcome {
+  background: linear-gradient(120deg, var(--navy), var(--navy-2) 60%, #0E7C86);
+  color: #FFFFFF;
+  border-radius: 20px;
+  padding: 26px 30px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
+}
+.hiq-welcome h2 { margin: 0 0 4px 0; font-size: 28px; font-weight: 800; }
+.hiq-welcome p { margin: 0 0 14px 0; opacity: 0.85; }
+.hiq-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.hiq-chip { background: rgba(255, 255, 255, 0.14); border: 1px solid rgba(255, 255, 255, 0.2); padding: 6px 12px; border-radius: 20px; font-size: 12.5px; font-weight: 500; }
+.hiq-chip i, .hiq-chip svg { margin-right: 6px; }
+.chip-status { background: rgba(18, 168, 163, 0.4); }
+.avail-green { background: rgba(46, 158, 107, 0.45); }
+.avail-teal  { background: rgba(18, 168, 163, 0.45); }
+.avail-red   { background: rgba(214, 69, 80, 0.55); }
+
+.hiq-hero { display: flex; align-items: center; gap: 18px; background: #E7F6F5; border-left: 5px solid var(--teal); border-radius: var(--radius); padding: 18px 24px; margin-bottom: 18px; }
+.hiq-hero-icon { font-size: 28px; color: var(--teal); }
+.hiq-hero-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--teal-dark); font-weight: 700; }
+.hiq-hero-title { font-size: 22px; font-weight: 800; color: var(--navy); }
+.hiq-hero-sub { color: var(--muted); font-size: 13px; }
+
+/* ===============================================================
+   ALERTS, NOTICES, FORM MESSAGES, BANNERS
+   =============================================================== */
+.hiq-alert { display: flex; gap: 12px; padding: 12px 14px; border-radius: 12px; margin-bottom: 10px; border-left: 4px solid; animation: fadeUp 0.4s ease both; }
+.hiq-alert-icon { font-size: 18px; padding-top: 2px; }
+.hiq-alert-title { font-weight: 700; font-size: 14px; }
+.hiq-alert-text { font-size: 13px; opacity: 0.9; margin-top: 2px; }
+.alert-danger  { background: #FDECEE; border-color: var(--red);   color: #8F2A33; }
+.alert-warning { background: #FDF3E1; border-color: var(--amber); color: #8A5A0B; }
+.alert-info    { background: #E8F1FB; border-color: var(--blue);  color: #1F4F86; }
+.alert-success { background: #E4F5EC; border-color: var(--green); color: #1F6B49; }
+.hiq-alert.pulse { animation: fadeUp 0.4s ease both, softPulse 2.4s ease-out 3; }   /* only critical alerts pulse, only 3 times */
+
+.hiq-notice { display: flex; gap: 10px; align-items: center; background: #FFF8E5; border: 1px solid #F3DFA8; color: #7A5B0A; border-radius: 12px; padding: 10px 14px; font-size: 13px; margin-bottom: 18px; }
+
+.hiq-form-msg { border-radius: 12px; padding: 10px 14px; margin: 12px 0; font-size: 13px; animation: fadeUp 0.3s ease both; }
+.msg-error { background: #FDECEE; color: #8F2A33; border-left: 4px solid var(--red); }
+.msg-ok    { background: #E4F5EC; color: #1F6B49; border-left: 4px solid var(--green); }
+.hiq-form-msg ul { margin: 6px 0 0 0; padding-left: 20px; }
+
+.hiq-banner { display: flex; align-items: center; gap: 10px; border-radius: 12px; padding: 12px 16px; font-weight: 700; margin-bottom: 14px; }
+.banner-danger  { background: #FDECEE; color: #8F2A33; border: 1px solid #F3B7BD; }
+.banner-warning { background: #FDF3E1; color: #8A5A0B; border: 1px solid #F0D49B; }
+.banner-danger.pulse { animation: softPulse 2.4s ease-out 3; }
+
+.hiq-empty { color: var(--muted); text-align: center; padding: 22px 8px; font-size: 14px; }
+.hiq-muted { color: var(--muted); font-size: 13px; }
+.hiq-section-title { font-size: 15px; font-weight: 700; color: var(--navy); margin: 6px 0 12px 0; }
+
+/* ===============================================================
+   BADGES
+   =============================================================== */
+.hiq-badge { display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; margin-left: 8px; vertical-align: middle; }
+.badge-green  { background: #E2F4EA; color: #1F7A52; }
+.badge-amber  { background: #FCF1DC; color: #A8680E; }
+.badge-red    { background: #FBE6E8; color: #B63540; }
+.badge-blue   { background: #E6EFFA; color: #2B6CB0; }
+.badge-teal   { background: #E3F6F5; color: #0E8C88; }
+.badge-purple { background: #EFE9F8; color: #6847A8; }
+.badge-grey   { background: #EDF1F5; color: #64748B; }
+
+/* ===============================================================
+   TIMELINES (doctor schedule, medicine schedule, activity log)
+   =============================================================== */
+.hiq-timeline { position: relative; padding-left: 4px; }
+.hiq-tl-item { display: grid; grid-template-columns: 82px 38px 1fr; align-items: start; gap: 10px; padding: 8px 10px; border-radius: 12px; margin-bottom: 6px; position: relative; transition: background 0.2s ease; }
+.hiq-tl-item:hover { background: #F4F7FB; }
+.hiq-tl-time { font-weight: 700; color: var(--navy); font-size: 13px; padding-top: 8px; text-align: right; }
+.hiq-tl-dot { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; position: relative; z-index: 1; }
+.hiq-tl-item:not(:last-child) .hiq-tl-dot::after { content: ""; position: absolute; top: 36px; left: 17px; width: 2px; height: 22px; background: var(--line); }
+.hiq-tl-title { font-weight: 600; color: var(--ink); padding-top: 6px; }
+.hiq-tl-detail { font-size: 12.5px; color: var(--muted); }
+
+.hiq-tl-item.tone-teal   .hiq-tl-dot { background: var(--teal); }
+.hiq-tl-item.tone-blue   .hiq-tl-dot { background: var(--blue); }
+.hiq-tl-item.tone-red    .hiq-tl-dot { background: var(--red); }
+.hiq-tl-item.tone-purple .hiq-tl-dot { background: var(--purple); }
+.hiq-tl-item.tone-navy   .hiq-tl-dot { background: var(--navy); }
+.hiq-tl-item.tone-amber  .hiq-tl-dot { background: var(--amber); }
+
+.hiq-tl-item.state-past { opacity: 0.55; }
+.hiq-tl-item.state-past .hiq-tl-dot { background: #A9B7C6; }
+.hiq-tl-item.state-next { background: #E7F6F5; box-shadow: inset 4px 0 0 var(--teal); }
+
+/* ===============================================================
+   KEY-VALUE ROWS, EMERGENCY CARD, PROGRESS BARS
+   =============================================================== */
+.hiq-info-row { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+.hiq-info-row:last-child { border-bottom: none; }
+.hiq-info-label { color: var(--muted); font-weight: 600; }
+.hiq-info-value { color: var(--ink); font-weight: 600; text-align: right; }
+
+.hiq-emergency { background: #FFF5F5; border: 1px solid #F5C2C7; border-left: 6px solid var(--red); border-radius: var(--radius); padding: 18px 22px; animation: fadeUp 0.45s ease both; }
+.hiq-emergency-head { font-weight: 800; color: #B63540; font-size: 16px; margin-bottom: 8px; display: flex; gap: 10px; align-items: center; }
+
+.hiq-progress { margin-bottom: 16px; }
+.hiq-progress-top { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: #475569; }
+.hiq-progress-track { height: 12px; background: #EDF1F5; border-radius: 8px; overflow: hidden; }
+.hiq-progress-fill { height: 100%; border-radius: 8px; transition: width 0.8s ease; }
+.fill-teal { background: var(--teal); } .fill-amber { background: var(--amber); } .fill-red { background: var(--red); }
+.fill-purple { background: var(--purple); } .fill-blue { background: var(--blue); }
+
+/* Hospital health score card (administrator) */
+.health-wrap { text-align: center; padding: 8px 0; }
+.health-score { font-size: 72px; font-weight: 800; line-height: 1; }
+.health-status { display: inline-block; color: #FFFFFF; font-weight: 700; font-size: 16px; padding: 6px 18px; border-radius: 20px; margin-top: 10px; }
+.health-note { color: var(--muted); font-size: 12px; margin-top: 12px; }
+
+/* ===============================================================
+   DOCTOR QUEUE TABLE
+   =============================================================== */
+.hiq-queue { width: 100%; border-collapse: collapse; font-size: 14px; }
+.hiq-queue th { text-align: left; color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.4px; padding: 8px 10px; border-bottom: 2px solid var(--line); }
+.hiq-queue td { padding: 11px 10px; border-bottom: 1px solid var(--line); }
+.hiq-queue tr:hover td { background: #F8FAFC; }
+.q-token { font-weight: 800; color: var(--navy); }
+.hiq-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; }
+.dot-amber { background: var(--amber); } .dot-teal { background: var(--teal); } .dot-green { background: var(--green); }
+
+/* ===============================================================
+   DATATABLES
+   =============================================================== */
+table.dataTable thead th { color: var(--navy); font-weight: 700; border-bottom: 2px solid var(--line) !important; }
+table.dataTable tbody td { padding: 10px 12px; }
+.dataTables_wrapper .dataTables_filter input { border-radius: 8px; border: 1px solid var(--line); padding: 4px 8px; }
+.dataTables_wrapper .dataTables_paginate .paginate_button.current { background: var(--teal) !important; color: #fff !important; border: none !important; border-radius: 8px; }
+
+/* Plotly containers fade in */
+.plotly.html-widget { animation: fadeUp 0.6s ease both; }
+
+/* Shiny validation text inside charts */
+.shiny-output-error-validation { color: var(--muted); padding: 24px; text-align: center; }
+
+/* ===============================================================
+   RESPONSIVE
+   =============================================================== */
+@media (max-width: 1100px) {
+  .hiq-sidebar { width: 76px; min-width: 76px; padding: 18px 8px; }
+  .hiq-brand > div:last-child, .hiq-nav-link span, .hiq-user > div:last-child { display: none; }
+  .hiq-brand { justify-content: center; padding: 0 0 18px 0; }
+  .hiq-nav-item a.hiq-nav-link { justify-content: center; padding: 12px 6px; }
+  .hiq-user { justify-content: center; padding: 0 0 12px 0; }
+  .hiq-logout { font-size: 0; padding: 10px 0; }
+  .hiq-logout i, .hiq-logout svg { font-size: 16px; }
+  .hiq-main { padding: 18px 16px 36px 16px; }
+}
+
+@media (max-width: 800px) {
+  .login-wrap { grid-template-columns: 1fr; }
+  .hiq-tl-item { grid-template-columns: 70px 34px 1fr; }
+  .hiq-welcome h2 { font-size: 22px; }
+}
+
+/* Respect users who prefer no motion */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* ---- Feature UI polish ---- */
+.hiq-form-msg.msg-ok,
+.hiq-form-msg.msg-error {
+  animation: fadeUp 0.35s ease both;
+}
+
+.hiq-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.hiq-bell-count {
+  animation: softPulse 2.4s ease-out infinite;
+}
